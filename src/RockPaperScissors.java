@@ -67,15 +67,21 @@ public class RockPaperScissors {
     }
 
     static boolean playAgain() {
-        System.out.println("wanna play again ? (yes / no)");
+        try {
+            System.out.println("wanna play again ? (yes / no)");
             usersChoice = s.next();
-            s.nextLine();
             if (usersChoice.equalsIgnoreCase("yes")) {
                 return true;
-            } else {
+            } else if (usersChoice.equalsIgnoreCase("no")) {
                 System.out.println("Have a good day");
                 return false;
+            } else {
+                throw new InputMismatchException();
             }
+        } catch (InputMismatchException e) {
+            System.out.println("please enter yes or no...");
+            return playAgain();
+        }
     }
 
     private static void displayMain() {
