@@ -31,7 +31,6 @@ public class StudentDAO {
         }
         System.out.println();
         System.out.println(stud.get(0));
-
     }
 
     void deleteStudent(Student st) {
