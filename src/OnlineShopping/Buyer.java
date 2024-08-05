@@ -1,6 +1,7 @@
 package OnlineShopping;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 public class Buyer {
     String name;
@@ -63,9 +64,20 @@ public class Buyer {
                 Main.mainmenu();
                 break;
             case 6:
-                System.out.println(Products.inventory);
+                listInventory();
                 break;
         }
+    }
+
+    static void listInventory() {
+        System.out.println();
+        for (Map.Entry<String, Integer> x : Products.inventory.entrySet()) {
+            System.out.print(x.getKey() + " " + x.getValue());
+            System.out.println();
+
+        }
+        Main.mainmenu();
+
     }
 
     private static void addToCart(HashMap<String, Integer> hm) {
@@ -78,6 +90,11 @@ public class Buyer {
     }
 
     static void listCart(HashMap<String, Integer> hm) {
+        for (Map.Entry<String, Integer> x : Products.inventory.entrySet()) {
+            System.out.println();
+            System.out.println(x.getKey() + " " + x.getValue());
+
+        }
         System.out.println(hm);
         System.out.println();
     }

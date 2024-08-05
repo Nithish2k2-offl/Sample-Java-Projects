@@ -43,7 +43,7 @@ public class Seller extends Products {
                 updateItem(s);
                 break;
             case 3:
-                System.out.println(inventory);
+                listInventory();
                 break;
             case 4:
                 Main.mainmenu();
@@ -51,10 +51,20 @@ public class Seller extends Products {
         }
     }
 
+    static void listInventory() {
+        System.out.println();
+
+        for (Map.Entry<String, Integer> x : Products.inventory.entrySet()) {
+            System.out.print(x.getKey() + " " + x.getValue());
+            System.out.println();
+        }
+        Main.mainmenu();
+    }
+
     static void addItem(Seller s) {
         System.out.println("Enter the name of the product");
-        productName = sc.nextLine();
         sc.nextLine();
+        productName = sc.nextLine();
         System.out.println("Enter quantity");
         quantity = sc.nextInt();
 
@@ -79,7 +89,7 @@ public class Seller extends Products {
                 }
             }
         } else {
-            System.out.println("enter correct details..");
+            System.out.println("product not found...enter correct details..");
             updateItem(s);
         }
     }
