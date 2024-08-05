@@ -4,12 +4,20 @@ import java.util.*;
 
 public class User {
     private String username;
-    private List<String> posts = new ArrayList<>();
-    private List<String> comments = new ArrayList<>();
-    private List<String> likes = new ArrayList<>();
+    private List<Post> posts;
+    private List<Comment> comments;
+    private List<Like> likes;
 
-    private void createPost(String content) {
+    public User(String username) {
+        this.username = username;
+        this.posts = new ArrayList<>();
+        this.comments = new ArrayList<>();
+        this.likes = new ArrayList<>();
+    }
 
+    public void createPost(String content) {
+        Post newpost = new Post(content, this);
+        this.posts.add(newpost);
     }
 
     private void commentPost(String post, String content) {

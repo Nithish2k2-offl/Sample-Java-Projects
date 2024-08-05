@@ -9,6 +9,15 @@ public class Post {
     List<String> likes = new ArrayList<>();
     boolean commentsAllowed;
     boolean likesAllowed;
+    public Post(String content, User author) {
+        this.content = content;
+        //this.author = author;
+        this.comments = new ArrayList<>();
+        this.likes = new ArrayList<>();
+        this.commentsAllowed = true;
+        this.likesAllowed = true;
+    }
+
 
     public void editContent(String newContent) {
 
