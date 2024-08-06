@@ -54,10 +54,11 @@ public class Seller extends Products {
     static void listInventory() {
         System.out.println();
 
-        for (Map.Entry<String, Integer> x : Products.inventory.entrySet()) {
-            System.out.print(x.getKey() + " " + x.getValue());
-            System.out.println();
-        }
+        // for (Map.Entry<String, Integer> x : Products.inventory.entrySet()) {
+        //     System.out.print(x.getKey() + " " + x.getValue());
+        //     System.out.println();
+        // }
+        System.out.println(inventory);
         Main.mainmenu();
     }
 

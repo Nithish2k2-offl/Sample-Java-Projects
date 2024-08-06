@@ -1,7 +1,6 @@
 package OnlineShopping;
 
 import java.util.*;
-import java.util.Map.Entry;
 
 public class Buyer {
     String name;
@@ -10,6 +9,8 @@ public class Buyer {
     int id;
 
     static int input;
+    static String prodname;
+    static int quantity;
 
     static List<Buyer> buyers = new ArrayList<>();
     static Scanner s = new Scanner(System.in);
@@ -59,12 +60,14 @@ public class Buyer {
                 break;
             case 4:
                 addToCart(hm);
+                buyermenu(b, hm);
                 break;
             case 5:
                 Main.mainmenu();
                 break;
             case 6:
                 listInventory();
+                buyermenu(b, hm);
                 break;
         }
     }
@@ -74,13 +77,15 @@ public class Buyer {
         for (Map.Entry<String, Integer> x : Products.inventory.entrySet()) {
             System.out.print(x.getKey() + " " + x.getValue());
             System.out.println();
-
         }
-        Main.mainmenu();
-
     }
 
     private static void addToCart(HashMap<String, Integer> hm) {
+        System.out.println("Enter the name of the product...");
+        prodname = s.next();
+        System.out.println("Enter the quantity");
+        quantity = s.nextInt();
+        hm.put(prodname,quantity);
     }
 
     private static void buyItem() {
@@ -90,12 +95,15 @@ public class Buyer {
     }
 
     static void listCart(HashMap<String, Integer> hm) {
-        for (Map.Entry<String, Integer> x : Products.inventory.entrySet()) {
-            System.out.println();
-            System.out.println(x.getKey() + " " + x.getValue());
-
+        if (hm.isEmpty())
+            System.out.println("Cart is empty... add products");
+        else {
+            // for (Map.Entry<String, Integer> x : Products.inventory.entrySet()) {
+            //     System.out.println();
+            //     System.out.println(x.getKey() + " " + x.getValue());
+            // }
+            System.out.println(hm);
         }
-        System.out.println(hm);
         System.out.println();
     }
 }
