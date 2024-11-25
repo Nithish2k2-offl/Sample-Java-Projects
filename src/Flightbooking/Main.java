@@ -9,16 +9,19 @@ public class Main {
     static int seats;
     static int price = 5000;
 
+    static int flightID = 0;
+
     public static void main(String[] args) {
         System.out.println("Welcome");
-        Lists.flightsList.add(new Flight(1, "air", 50));
-        Lists.flightsList.add(new Flight(2, "deccan", 50));
+        Lists.flightsList.add(new Flight(++flightID, "air", 50));
+        Lists.flightsList.add(new Flight(++flightID, "deccan", 50));
+        Lists.flightsList.add(new Flight(++flightID, "qatar", 50));
 
         mainmenu();
     }
 
     static void mainmenu() {
-        System.out.println("1. book 2. cancel 3. print");
+        System.out.println("1. book 2. cancel 3. print 4. exit");
         choice = s.nextInt();
         switch (choice) {
             case 1:
@@ -33,6 +36,8 @@ public class Main {
                 print();
                 mainmenu();
                 break;
+            case 4:
+            System.exit(0);
         }
     }
 
@@ -54,7 +59,7 @@ public class Main {
                     int currentseats = f.getSeats() - seats;
                     f.setSeats(currentseats);
 
-                    System.out.println("-----booked successfully");
+                    System.out.println("\n-----booked successfully\n");
                     price += 200;
                     break;
                 } else {
@@ -94,7 +99,6 @@ public class Main {
 
     static void print() {
         System.out.println();
-        int i = 1;
         System.out.println("------------------\nPassenger details\n---------------");
         for (Passenger p : Lists.passengersList) {
             System.out

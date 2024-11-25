@@ -27,7 +27,7 @@ public class Main {
             signup(0);
         else if (struser.equals("s") && str.equals("l"))
             login(1);
-        else
+        else if (struser.equals("s") && str.equals("s"))
             signup(1);
     }
 
